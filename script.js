@@ -1,7 +1,6 @@
 
 const supabaseUrl = "https://tugojovqzczwboascqdl.supabase.co";
 const supabaseKey = "sb_publishable_TIhun6pTcm0DVhWex4vqIQ_THjc7tq8";
-
 const supabaseClient = window.supabase.createClient(
   supabaseUrl,
   supabaseKey
@@ -16,52 +15,45 @@ form.addEventListener("submit", async (e) => {
   status.textContent = "Sending...";
   status.style.color = "#888";
 
-  // Read form values
-  const formData = new FormData(form);
+  // Read values directly from the inputs
+  const name = document.getElementById("cf-name").value.trim();
+  const email = document.getElementById("cf-email").value.trim();
+  const subject = document.getElementById("cf-subject").value.trim();
+  const message = document.getElementById("cf-message").value.trim();
 
-  const name = formData.get("name")?.trim();
-  const email = formData.get("email")?.trim();
-  const subject = formData.get("subject")?.trim();
-  const message = formData.get("message")?.trim();
-
-  // Debugging
-  console.log("========== FORM DATA ==========");
   console.log("Name:", name);
   console.log("Email:", email);
   console.log("Subject:", subject);
   console.log("Message:", message);
-  console.log("===============================");
 
-  // Prevent empty submission
   if (!name || !email || !message) {
     status.textContent = "Please fill in all required fields.";
-    status.style.color = "#ef4444";
+    status.style.color = "red";
     return;
   }
 
-  // Insert into Supabase
-  const { error } = await supabaseClient
+  const { data, error } = await supabaseClient
     .from("portfolio-db-contact")
     .insert([
       {
-        name,
-        email,
-        subject,
-        message
+        name: name,
+        email: email,
+        subject: subject,
+        message: message
       }
-    ]);
+    ])
+    .select();
+
+  console.log(data);
+  console.log(error);
 
   if (error) {
-    console.error(error);
-
-    status.textContent = "Error: " + error.message;
-    status.style.color = "#d80a0a";
-  } else {
-    console.log("Message saved successfully!");
-
-    status.textContent = "✅ Message sent successfully!";
-    status.style.color = "#098902";
-
-    form.reset();
+    status.textContent = error.message;
+    status.style.color = "red";
+    return;
   }
+
+  status.textContent = "Message sent successfully!";
+  status.style.color = "green";
+  form.reset();
 });

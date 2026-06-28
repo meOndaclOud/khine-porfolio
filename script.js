@@ -28,10 +28,9 @@ console.log(messageInput);
 
 const formData = new FormData(form);
 
-const name = formData.get("name");
-const email = formData.get("email");
-const subject = formData.get("subject");
-const message = formData.get("message");
+for (const pair of formData.entries()) {
+    console.log(pair[0], "=", pair[1]);
+}
 
   
 console.log({

@@ -20,7 +20,13 @@ form.addEventListener("submit", async (e) => {
   const email = document.getElementById("cf-email").value;
   const subject = document.getElementById("cf-subject").value;
   const message = document.getElementById("cf-message").value;
-
+  
+console.log({
+  name,
+  email,
+  subject,
+  message
+});
 const { error } = await supabaseClient
     .from("portfolio-db-contact")
     .insert([

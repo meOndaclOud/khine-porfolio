@@ -16,10 +16,20 @@ form.addEventListener("submit", async (e) => {
   status.textContent = "Sending...";
   status.style.color = "#888";
 
-  const name = document.getElementById("cf-name").value;
-  const email = document.getElementById("cf-email").value;
-  const subject = document.getElementById("cf-subject").value;
-  const message = document.getElementById("cf-message").value;
+const nameInput = document.getElementById("cf-name");
+const emailInput = document.getElementById("cf-email");
+const subjectInput = document.getElementById("cf-subject");
+const messageInput = document.getElementById("cf-message");
+
+console.log(nameInput);
+console.log(emailInput);
+console.log(subjectInput);
+console.log(messageInput);
+
+const name = nameInput?.value;
+const email = emailInput?.value;
+const subject = subjectInput?.value;
+const message = messageInput?.value;
   
 console.log({
   name,

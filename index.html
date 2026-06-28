@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khine Zin — Junior Digital Transformation Associate</title>
+<meta name="description" content="Khine Zin — Junior Digital Transformation Associate. Building technology, empowering people, and sharing knowledge. Portfolio covering cloud, networking, security, and digital learning.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+
+<style>
+  :root{
+    /* ---- Light mode tokens ---- */
+    --bg: #F7F4F8;
+    --bg-elevated: #FFFFFF;
+    --surface: rgba(255, 255, 255, 0.35);
+    --surface-strong: rgba(255, 255, 255, 0.55);
+    --border: rgba(255, 255, 255, 0.5);
+    --border-strong: rgba(255, 255, 255, 0.7);
+    --text-primary: #2B2433;
+    --text-secondary: #5B5266;
+    --text-tertiary: #8E8499;
+
+    /* ---- Accent ramp: warm coral -> lavender -> sky -> mint (shared both modes) ---- */
+    --coral: #F0876B;
+    --rose: #E895B3;
+    --violet: #B48BD6;
+    --lavender: #C2A6E8;
+    --blue: #8EB8E0;
+    --mint: #9FD8CE;
+    /* legacy aliases kept so existing rules referencing these still resolve */
+    --pink: var(--rose);
+    --indigo: var(--violet);
+
+    --glass-blur: 28px;
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html[data-theme="dark"]{
+    --bg: #1C1A24;
+    --bg-elevated: #242030;
+    --surface: rgba(20, 18, 28, 0.45);
+    --surface-strong: rgba(20, 18, 28, 0.62);
+    --border: rgba(255, 255, 255, 0.14);
+    --border-strong: rgba(255, 255, 255, 0.22);
+    --text-primary: #F3F0F6;
+    --text-secondary: #C7C0D2;
+    --text-tertiary: #9D96AA;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: transparent;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    transition: color .4s var(--ease);
+  }
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-0.02em; }
+  p{ margin:0; }
+  a{ text-decoration:none; color:inherit; }
+  ul{ margin:0; padding:0; list-style:none; }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+  .logo{
+    font-family: 'Brush Script MT', cursive;
+    font-size:22px;
+    font-weight:300;
+  }
+  .icon{ width:1em; height:1em; font-size:18px; flex-shrink:0; display:inline-block; vertical-align:middle; }
+  button{ font-family: inherit; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+
+  ::selection{ background: var(--violet); color: white; }
+
+  ::-webkit-scrollbar{ width: 10px; }
+  ::-webkit-scrollbar-track{ background: transparent; }
+  ::-webkit-scrollbar-thumb{ background: var(--border-strong); border-radius: 10px; }
+
+  :focus-visible{ outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 4px; }
+
+  /* ---------- Layout helpers ---------- */
+  .wrap{ max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  section{ position: relative; }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--violet);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom: 16px;
+  }
+  .eyebrow::before{
+    content:''; width:18px; height:1px; background: var(--violet); display:inline-block;
+  }
+
+  .grad-text{
+    background: linear-gradient(100deg, var(--coral), var(--rose) 35%, var(--violet) 65%, var(--blue) 100%);
+    -webkit-background-clip: text; background-clip:text; color: transparent;
+    background-size: 200% auto;
+  }
+
+  /* ---------- Glass surfaces (frosted, true-translucent) ---------- */
+  .glass{
+    background: var(--surface-strong);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+    backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+    border: 1px solid var(--border);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.4),
+      0 8px 32px -12px rgba(60,40,80,.18);
+  }
+  html[data-theme="dark"] .glass{
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.08),
+      0 8px 32px -12px rgba(0,0,0,.45);
+  }
+
+  .grad-border{ position: relative; border-radius: var(--radius-md); }
+  .grad-border::before{
+    content:'';
+    position:absolute; inset:0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(240,135,107,.5), rgba(196,166,232,.4), rgba(142,184,224,.45));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events:none;
+    opacity: .6;
+    transition: opacity .3s var(--ease);
+  }
+  .grad-border:hover::before{ opacity: 1; }
+
+  /* macOS-style window chrome dots, ghost/outline style like the reference */
+  .chrome-dots{ display:flex; gap:7px; }
+  .chrome-dots span{
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 1.4px solid var(--border-strong);
+    display: inline-block;
+  }
+
+/* Red */
+  .chrome-dots span:nth-child(1){
+    background-color: #eb3027;
+    border-color: #eb3027;
+  }
+
+/* Yellow */
+  .chrome-dots span:nth-child(2){
+    background-color: #eba40c;
+    border-color: #eba40c;
+  }
+
+/* Green */
+  .chrome-dots span:nth-child(3){
+    background-color: #0da624;
+    border-color: #0da624;
+  }
+
+  .hero-checklist{ display:flex; flex-direction:column; gap:16px; padding-left:22px; }
+  .hero-checklist li{
+    font-size: 15px; color: var(--text-secondary);
+    display:flex; align-items:center; gap:11px;
+  }
+  .hero-checklist .check{
+    color: var(--coral);
+    font-size: 14px;
+  }
+
+  .hero-copy p, .hero-copy h1{ text-shadow: 0 1px 24px rgba(255,255,255,.25); }
+  html[data-theme="dark"] .hero-copy p, html[data-theme="dark"] .hero-copy h1{ text-shadow: 0 2px 20px rgba(0,0,0,.3); }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 13px 26px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14.5px;
+    cursor: pointer;
+    border: none;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
+    white-space: nowrap;
+  }
+  .btn-primary{
+    background: linear-gradient(120deg, var(--coral), var(--violet));
+    color: white;
+    box-shadow: 0 8px 24px -8px rgba(180,139,214,.5);
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 14px 32px -8px rgba(180,139,214,.6); }
+  .btn-ghost{
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+  .btn-ghost:hover{ background: var(--surface-strong); transform: translateY(-2px); }
+  .btn:active{ transform: scale(.97); }
+
+  /* ---------- Nav ---------- */
+  #nav{
+    position: fixed; top:0; left:0; right:0; z-index: 100;
+    padding: 18px 0;
+    transition: padding .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease);
+  }
+  #nav.scrolled{
+    padding: 12px 0;
+    background: var(--surface-strong);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; }
+  .nav-links{ display:flex; gap: 30px; align-items:center; }
+  .nav-link{ font-size: 14px; font-weight: 500; color: var(--text-secondary); position:relative; padding: 4px 0; transition: color .25s; }
+  .nav-link:hover{ color: var(--text-primary); }
+  .nav-link::after{
+    content:''; position:absolute; left:0; bottom:-2px; height:1px; width:0%;
+    background: linear-gradient(90deg, var(--violet), var(--pink));
+    transition: width .3s var(--ease);
+  }
+  .nav-link:hover::after{ width:100%; }
+
+  .theme-toggle{
+    width: 42px; height: 42px; border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    cursor: pointer;
+    transition: transform .3s var(--ease), background .3s;
+  }
+  .theme-toggle:hover{ transform: rotate(15deg); }
+  .theme-toggle svg{ width:18px; height:18px; }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{ opacity:0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+  .reveal-stagger > * { opacity:0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  .reveal-stagger.in > *{ opacity:1; transform: translateY(0); }
+  .reveal-stagger.in > *:nth-child(1){ transition-delay: .03s; }
+  .reveal-stagger.in > *:nth-child(2){ transition-delay: .10s; }
+  .reveal-stagger.in > *:nth-child(3){ transition-delay: .17s; }
+  .reveal-stagger.in > *:nth-child(4){ transition-delay: .24s; }
+  .reveal-stagger.in > *:nth-child(5){ transition-delay: .31s; }
+  .reveal-stagger.in > *:nth-child(6){ transition-delay: .38s; }
+
+  /* ---------- Loading screen ---------- */
+  #loader{
+    position: fixed; inset:0; z-index: 9999;
+    background: var(--bg);
+    display:flex; align-items:center; justify-content:center;
+    transition: opacity .6s var(--ease), visibility .6s;
+  }
+  #loader.done{ opacity:0; visibility:hidden; pointer-events:none; }
+  .loader-mark{ font-family:'Space Grotesk'; font-weight:700; font-size: 15px; letter-spacing:.05em; display:flex; flex-direction:column; align-items:center; gap:18px; color: var(--text-primary); }
+  .loader-bar{ width: 180px; height: 2px; background: var(--border); border-radius: 2px; overflow:hidden; position:relative; }
+  .loader-bar span{ position:absolute; inset:0; width:30%; background: linear-gradient(90deg, var(--violet), var(--pink)); animation: loadbar 1.1s ease-in-out infinite; }
+  @keyframes loadbar{ 0%{ left:-30%; } 100%{ left:100%; } }
+
+  /* ---------- Aurora page backdrop (fixed, behind all content) ---------- */
+  .aurora-wrap{ position:fixed; inset:0; overflow:hidden; z-index:-1; background: var(--bg); transition: background-color .4s var(--ease); }
+  .aurora-blob{ position:absolute; border-radius:50%; filter: blur(70px); will-change: transform; opacity: .65; }
+  html[data-theme="dark"] .aurora-blob{ opacity:.4; }
+
+  /* Scattered plus-mark texture, matching the reference screenshot */
+  .grid-overlay{
+    position:absolute; inset:0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg stroke='white' stroke-width='1.4' stroke-linecap='round' opacity='0.5'%3E%3Cpath d='M8 4v8M4 8h8'/%3E%3Cpath d='M40 28v8M36 32h8'/%3E%3Cpath d='M22 46v8M18 50h8'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 64px 64px;
+    opacity:.4;
+  }
+  html[data-theme="dark"] .grid-overlay{ opacity:.18; }
+
+  .noise-overlay{
+    position:fixed; inset:0; pointer-events:none; opacity:.025; z-index:-1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .particle{
+    position:absolute; border-radius:50%;
+    background: linear-gradient(135deg, var(--violet), var(--pink));
+    opacity:.4;
+    animation: floaty 14s ease-in-out infinite;
+  }
+  @keyframes floaty{
+    0%, 100%{ transform: translate(0,0); }
+    50%{ transform: translate(18px, -26px); }
+  }
+
+  /* ---------- Hero extras ---------- */
+  .social-ico{
+    width:40px; height:40px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--border-strong);
+    color: var(--text-secondary);
+    transition: all .3s var(--ease);
+  }
+  .social-ico svg{ width:17px; height:17px; }
+  .social-ico:hover{
+    color:#fff;
+    background: linear-gradient(135deg, var(--violet), var(--pink));
+    border-color: transparent;
+    transform: translateY(-3px);
+  }
+
+  @keyframes pulseGlow{
+    0%,100%{ opacity:.3; transform: scale(1); }
+    50%{ opacity:.5; transform: scale(1.04); }
+  }
+
+  .float-chip{ animation: chipfloat 7s ease-in-out infinite; box-shadow: 0 12px 28px -10px rgba(80,40,160,.25); }
+  @keyframes chipfloat{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-10px); }
+  }
+
+  .scroll-cue{
+    position:absolute; bottom:28px; left:50%; transform: translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    font-size:11px; letter-spacing:.15em; color: var(--text-tertiary);
+    z-index:2;
+    animation: bobcue 2.2s ease-in-out infinite;
+  }
+  .scroll-cue svg{ width:14px; height:14px; }
+  @keyframes bobcue{ 0%,100%{ transform: translate(-50%,0); } 50%{ transform: translate(-50%,6px); } }
+
+  @media (max-width: 900px){
+    #heroGrid{ grid-template-columns: 1fr !important; }
+    #r-portrait{ order:-1; margin-bottom: 12px; }
+    .nav-links{ display:none !important; }
+    .float-chip{ left:auto !important; right:6px !important; }
+    .float-chip:first-of-type{ top:6px !important; left:6px !important; right:auto !important; }
+  }
+  @media (max-width: 640px){
+    .menu-toggle-show{ display:flex !important; }
+  }
+
+  .interest-pill{
+    font-size: 13.5px; font-weight:500;
+    padding: 9px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--border-strong);
+    color: var(--text-secondary);
+    background: var(--surface);
+    transition: all .3s var(--ease);
+    cursor:default;
+  }
+  .interest-pill:hover{
+    border-color: transparent;
+    color:#fff;
+    background: linear-gradient(120deg, var(--violet), var(--pink));
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px){
+    #about .wrap{ grid-template-columns: 1fr !important; }
+    #statGrid{ grid-template-columns: repeat(2,1fr) !important; }
+    #roles .reveal-stagger{ grid-template-columns: 1fr !important; }
+  }
+
+  .role-card{
+    padding: 32px 26px;
+    border-radius: var(--radius-md);
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .role-card:hover{ transform: translateY(-6px); box-shadow: 0 24px 48px -20px rgba(80,40,160,.3); }
+  .role-icon{
+    width: 46px; height:46px; border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; margin-bottom:20px;
+  }
+  .role-icon svg{ width:21px; height:21px; }
+
+  .skill-card{
+    padding: 28px 24px;
+    border-radius: var(--radius-md);
+    transition: transform .4s var(--ease), border-color .4s;
+  }
+  .skill-card:hover{ transform: translateY(-5px); border-color: var(--violet); }
+  .skill-card-icon{ width:26px; height:26px; color: var(--violet); margin-bottom:18px; display:block; }
+  .skill-list{ display:flex; flex-direction:column; gap:9px; }
+  .skill-list li{
+    font-size: 13.5px; color: var(--text-secondary);
+    padding-left: 16px; position:relative;
+  }
+  .skill-list li::before{
+    content:''; position:absolute; left:0; top:7px;
+    width:6px; height:6px; border-radius:50%;
+    background: linear-gradient(135deg, var(--violet), var(--pink));
+  }
+
+  @media (max-width: 900px){
+    #skillsGrid{ grid-template-columns: repeat(2,1fr) !important; }
+  }
+  @media (max-width: 600px){
+    #skillsGrid{ grid-template-columns: 1fr !important; }
+  }
+
+  /* ---------- Timeline (trace-route signature element) ---------- */
+  .timeline{ position:relative; padding-left: 42px; }
+  .timeline::before{
+    content:'';
+    position:absolute; left:9px; top:6px; bottom:6px; width:2px;
+    background: linear-gradient(180deg, var(--violet), var(--pink) 50%, var(--blue));
+    opacity:.4;
+  }
+  .tl-item{ position:relative; margin-bottom: 36px; }
+  .tl-item:last-child{ margin-bottom:0; }
+  .tl-dot{
+    position:absolute; left:-42px; top:28px;
+    width:20px; height:20px; border-radius:50%;
+    background: var(--bg);
+    border: 2px solid var(--violet);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .tl-dot::after{
+    content:''; width:8px; height:8px; border-radius:50%;
+    background: linear-gradient(135deg, var(--violet), var(--pink));
+  }
+  .tl-pulse{
+    position:absolute; inset:-6px; border-radius:50%;
+    border: 1.5px solid var(--violet);
+    animation: tlpulse 2.4s ease-out infinite;
+  }
+  @keyframes tlpulse{
+    0%{ transform:scale(.7); opacity:.8; }
+    100%{ transform:scale(1.6); opacity:0; }
+  }
+  .tl-content{ padding: 26px 28px; border-radius: var(--radius-md); transition: transform .4s var(--ease); }
+  .tl-content:hover{ transform: translateX(4px); }
+  .tl-head{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:6px; }
+  .tl-date{ font-size:11.5px; color: var(--text-tertiary); letter-spacing:.05em; white-space:nowrap; }
+  .tl-org{ font-size:12.5px; color: var(--violet); margin-bottom:16px; }
+  .tl-points{ display:flex; flex-direction:column; gap:9px; }
+  .tl-points li{
+    font-size:14px; color: var(--text-secondary); line-height:1.5;
+    padding-left:18px; position:relative;
+  }
+  .tl-points li::before{
+    content:'▸'; position:absolute; left:0; color: var(--pink); font-size:12px; top:1px;
+  }
+
+  /* ---------- Project cards ---------- */
+  .project-card{
+    display:grid; grid-template-columns: 220px 1fr;
+    border-radius: var(--radius-lg);
+    overflow:hidden;
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .project-card:hover{ transform: translateY(-4px); box-shadow: 0 28px 56px -24px rgba(80,40,160,.32); }
+  .project-visual{
+    display:flex; align-items:center; justify-content:center;
+    min-height: 100%;
+  }
+  .project-visual svg{ width:46px; height:46px; color:#fff; opacity:.9; }
+  .project-body{ padding: 30px 32px; }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tech-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+  .proj-link{
+    display:flex; align-items:center; gap:6px;
+    font-size: 13px; font-weight:600; color: var(--violet);
+    transition: gap .25s;
+  }
+  .proj-link:hover{ gap:9px; }
+
+  @media (max-width: 700px){
+    .project-card{ grid-template-columns: 1fr; }
+    .project-visual{ height: 120px; }
+  }
+
+  /* ---------- Certifications ---------- */
+  .cert-badge{
+    display:flex; align-items:center; gap:14px;
+    padding: 20px 18px; border-radius: var(--radius-md);
+    transition: transform .35s var(--ease), border-color .35s var(--ease);
+    cursor: pointer;
+  }
+  .cert-badge:hover{ transform: translateY(-4px); border-color: var(--coral); }
+  .cert-badge svg{ width:30px; height:30px; color: var(--violet); flex-shrink:0; transition: color .35s var(--ease); }
+  .cert-badge:hover svg{ color: var(--coral); }
+  .cert-badge h4{ transition: color .35s var(--ease); }
+  .cert-badge:hover h4{ color: var(--coral); }
+
+  @media (max-width: 900px){ #certGrid{ grid-template-columns: repeat(2,1fr) !important; } }
+  @media (max-width: 560px){ #certGrid{ grid-template-columns: 1fr !important; } }
+
+  /* ---------- Languages ---------- */
+  .lang-card{ padding:24px; border-radius: var(--radius-md); }
+  .lang-top{ display:flex; justify-content:space-between; font-weight:600; font-size:15px; margin-bottom:12px; }
+  .lang-pct{ color: var(--violet); font-size:13px; }
+  .lang-bar{ width:100%; height:6px; background: var(--border); border-radius:6px; overflow:hidden; margin-bottom:12px; }
+  .lang-fill{ height:100%; width:0%; border-radius:6px; background: linear-gradient(90deg, var(--violet), var(--pink)); transition: width 1.4s var(--ease); }
+  .lang-label{ font-size:12.5px; color: var(--text-tertiary); }
+
+  @media (max-width: 700px){
+    #languages .reveal-stagger{ grid-template-columns: 1fr !important; }
+  }
+
+  /* ---------- Books ---------- */
+  .book-card{ transition: transform .4s var(--ease); }
+  .book-card:hover{ transform: translateY(-6px); }
+  .book-cover{
+    aspect-ratio: 4/3; border-radius: var(--radius-md);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 20px 40px -16px rgba(80,40,160,.35);
+  }
+  .book-cover svg{ width:42px; height:42px; color:#fff; opacity:.95; }
+
+  @media (max-width: 700px){
+    #books .reveal-stagger{ grid-template-columns: 1fr !important; }
+  }
+
+  /* ---------- Articles ---------- */
+  .article-card{
+    display:block; padding:26px 24px; border-radius: var(--radius-md);
+    transition: transform .4s var(--ease), border-color .4s;
+  }
+  .article-card:hover{ transform: translateY(-5px); border-color: var(--violet); }
+  .article-tag{ font-size:10.5px; letter-spacing:.08em; color: var(--pink); }
+  .article-cta{ font-size:12.5px; color: var(--violet); display:inline-block; margin-top:14px; }
+
+  @media (max-width: 900px){ #articleGrid{ grid-template-columns: 1fr !important; } }
+
+  /* ---------- Resume band ---------- */
+  .resume-band{
+    padding: 40px 36px; border-radius: var(--radius-lg);
+    display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-row{ display:flex; align-items:center; gap:16px; }
+  .contact-icon{
+    width:44px; height:44px; border-radius:13px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--surface); border:1px solid var(--border-strong);
+    color: var(--violet);
+    transition: all .3s var(--ease);
+  }
+  .contact-row:hover .contact-icon{ background: linear-gradient(135deg, var(--violet), var(--pink)); color:#fff; border-color:transparent; }
+  .contact-icon svg{ width:18px; height:18px; }
+  .contact-label{ display:block; font-size:12px; color: var(--text-tertiary); margin-bottom:2px; }
+  .contact-value{ display:block; font-size:15px; font-weight:500; }
+
+  .field{ display:flex; flex-direction:column; gap:7px; }
+  .field label{ font-size:12.5px; color: var(--text-tertiary); font-weight:500; }
+  .field input, .field textarea{
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    padding: 11px 14px;
+    font-size: 14px;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    resize: vertical;
+    transition: border-color .25s, box-shadow .25s;
+  }
+  .field input:focus, .field textarea:focus{
+    outline:none; border-color: var(--violet);
+    box-shadow: 0 0 0 3px rgba(180,139,214,.18);
+  }
+  .field input::placeholder, .field textarea::placeholder{ color: var(--text-tertiary); }
+
+  @media (max-width: 800px){
+    #contactGrid{ grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 480px){
+    #contactForm > div:first-child{ grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+<body>
+<div class="aurora-wrap">
+  <canvas id="auroraCanvas" style="position:absolute; inset:0; width:100%; height:100%;"></canvas>
+  <div class="grid-overlay"></div>
+</div>
+<div class="noise-overlay"></div>
+<svg style="display:none;" aria-hidden="true">
+<symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></symbol>
+<symbol id="icon-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7" />
+  <path d="M12 19V5" /></symbol>
+<symbol id="icon-badge-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+  <path d="m9 12 2 2 4-4" /></symbol>
+<symbol id="icon-book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14" />
+  <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></symbol>
+<symbol id="icon-brain-circuit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+  <path d="M9 13a4.5 4.5 0 0 0 3-4" />
+  <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" />
+  <path d="M3.477 10.896a4 4 0 0 1 .585-.396" />
+  <path d="M6 18a4 4 0 0 1-1.967-.516" />
+  <path d="M12 13h4" />
+  <path d="M12 18h6a2 2 0 0 1 2 2v1" />
+  <path d="M12 8h8" />
+  <path d="M16 8V5a2 2 0 0 1 2-2" />
+  <circle cx="16" cy="13" r=".5" />
+  <circle cx="18" cy="3" r=".5" />
+  <circle cx="20" cy="21" r=".5" />
+  <circle cx="20" cy="8" r=".5" /></symbol>
+<symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></symbol>
+<symbol id="icon-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol>
+<symbol id="icon-cloud-cog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.852 19.772-.383.924" />
+  <path d="m13.148 14.228.383-.923" />
+  <path d="M13.148 19.772a3 3 0 1 0-2.296-5.544l-.383-.923" />
+  <path d="m13.53 20.696-.382-.924a3 3 0 1 1-2.296-5.544" />
+  <path d="m14.772 15.852.923-.383" />
+  <path d="m14.772 18.148.923.383" />
+  <path d="M4.2 15.1a7 7 0 1 1 9.93-9.858A7 7 0 0 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.2" />
+  <path d="m9.228 15.852-.923-.383" />
+  <path d="m9.228 18.148-.923.383" /></symbol>
+<symbol id="icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3" />
+  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+  <path d="m7 10 5 5 5-5" /></symbol>
+<symbol id="icon-external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6" />
+  <path d="M10 14 21 3" />
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></symbol>
+<symbol id="icon-feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z" />
+  <path d="M16 8 2 22" />
+  <path d="M17.5 15H9" /></symbol>
+<symbol id="icon-file-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M12 18v-6" />
+  <path d="m9 15 3 3 3-3" /></symbol>
+<symbol id="icon-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></symbol>
+<symbol id="icon-folder-kanban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+  <path d="M8 10v4" />
+  <path d="M12 10v2" />
+  <path d="M16 10v6" /></symbol>
+<symbol id="icon-git-merge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3" />
+  <circle cx="6" cy="6" r="3" />
+  <path d="M6 21V9a9 9 0 0 0 9 9" /></symbol>
+<symbol id="icon-graduation-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+  <path d="M22 10v6" />
+  <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></symbol>
+<symbol id="icon-layout-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1" />
+  <rect width="7" height="7" x="14" y="3" rx="1" />
+  <rect width="7" height="7" x="14" y="14" rx="1" />
+  <rect width="7" height="7" x="3" y="14" rx="1" /></symbol>
+<symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+  <rect x="2" y="4" width="20" height="16" rx="2" /></symbol>
+<symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></symbol>
+<symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" /></symbol>
+<symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" /></symbol>
+<symbol id="icon-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1" />
+  <rect x="2" y="16" width="6" height="6" rx="1" />
+  <rect x="9" y="2" width="6" height="6" rx="1" />
+  <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" />
+  <path d="M12 12V8" /></symbol>
+<symbol id="icon-notebook-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" />
+  <path d="M2 6h4" />
+  <path d="M2 10h4" />
+  <path d="M2 14h4" />
+  <path d="M2 18h4" />
+  <path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" /></symbol>
+<symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol>
+<symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
+  <path d="m21.854 2.147-10.94 10.939" /></symbol>
+<symbol id="icon-server-cog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.852 14.772-.383.923" />
+  <path d="M13.148 14.772a3 3 0 1 0-2.296-5.544l-.383-.923" />
+  <path d="m13.148 9.228.383-.923" />
+  <path d="m13.53 15.696-.382-.924a3 3 0 1 1-2.296-5.544" />
+  <path d="m14.772 10.852.923-.383" />
+  <path d="m14.772 13.148.923.383" />
+  <path d="M4.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-.5" />
+  <path d="M4.5 14H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-.5" />
+  <path d="M6 18h.01" />
+  <path d="M6 6h.01" />
+  <path d="m9.228 10.852-.923-.383" />
+  <path d="m9.228 13.148-.923.383" /></symbol>
+<symbol id="icon-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+  <path d="m9 12 2 2 4-4" /></symbol>
+<symbol id="icon-shield-half" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+  <path d="M12 22V2" /></symbol>
+<symbol id="icon-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
+  <path d="M20 2v4" />
+  <path d="M22 4h-4" />
+  <circle cx="4" cy="20" r="2" /></symbol>
+<symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" /></symbol>
+<symbol id="icon-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19h8" />
+  <path d="m4 17 6-6-6-6" /></symbol>
+<symbol id="icon-user-round" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5" />
+  <path d="M20 21a8 8 0 0 0-16 0" /></symbol>
+<symbol id="icon-workflow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2" />
+  <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+  <rect width="8" height="8" x="13" y="13" rx="2" /></symbol>
+<symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol>
+<symbol id="icon-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+<symbol id="icon-instagram" viewBox="0 0 24 24" fill="currentColor"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
+<symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.34 9.5H5.67V18.5H8.34V9.5zM7 5.7a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1zM18.33 18.5v-5.07c0-2.7-1.44-3.96-3.36-3.96-1.55 0-2.24.86-2.63 1.46v-1.43H9.67c.03.7 0 9 0 9h2.67v-5.03c0-.27.02-.54.1-.73.22-.55.73-1.12 1.58-1.12 1.12 0 1.57.85 1.57 2.1v4.78h2.74z"/></symbol>
+</svg>
+<!-- ============ LOADER ============ -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-mark">
+    <span class="grad-text">KHINE ZIN</span>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo">Khine Zin</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#roles" class="nav-link">Roles</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#writing" class="nav-link">Writing</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon" id="iconSun" style="display:none;"><use href="#icon-sun"></use></svg>
+        <svg class="icon" id="iconMoon"><use href="#icon-moon"></use></svg>
+      </button>
+      <a href="#contact" class="btn btn-primary" style="display:none;" id="navCta">Contact</a>
+      <button class="theme-toggle menu-toggle-show" id="menuToggle" aria-label="Open menu" style="display:none;">
+        <svg class="icon"><use href="#icon-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ --> 
+<header id="top" style="min-height:100vh; display:flex; align-items:center; padding-top:110px; padding-bottom:60px;">
+  <div class="wrap" style="position:relative; z-index:2; display:grid; grid-template-columns: 1.15fr 0.85fr; gap:64px; align-items:center;" id="heroGrid">
+    <div class="hero-copy">
+      <div class="eyebrow reveal" id="r-eyebrow">Mandalay, Myanmar · Available for opportunities</div>
+      <h1 class="reveal" id="r-h1" style="font-size: clamp(40px, 6vw, 72px); line-height:1.02; font-weight:700; margin-bottom:22px;">
+        KHINE ZIN
+      </h1>
+      <p class="reveal mono" id="r-title" style="font-size: clamp(15px, 1.6vw, 19px); color:var(--violet); font-weight:500; margin-bottom: 22px;">
+        Junior Digital Transformation Associate
+      </p>
+      <p class="reveal mono" id="r-title" style="font-size: clamp(14px, 1.5vw, 18px); color:var(--text-secondary); max-width: 540px; line-height:1.55; margin-bottom: 18px;">
+        Exploring the intersection of technology, digital innovation, and knowledge sharing to create meaningful impact.
+      </p>
+      <p class="reveal" id="r-intro" style="font-size:15.5px; color:var(--text-secondary); max-width: 560px; line-height:1.7; margin-bottom: 38px;">
+        A technology professional passionate about digital transformation, learning, content creation, and building meaningful experiences through technology and education.
+      </p>
+
+      <div class="reveal" id="r-buttons" style="display:flex; flex-wrap:wrap; gap:14px; margin-bottom: 40px;">
+        <a href="assets/cv.pdf" class="btn btn-primary"><svg class="icon" style="width:16px;height:16px;"><use href="#icon-download"></use></svg>Download CV</a>
+        <a href="assets/resume.pdf" class="btn btn-ghost"><svg class="icon" style="width:16px;height:16px;"><use href="#icon-folder-kanban"></use></svg>View Portfolio</a>
+        <a href="#contact" class="btn btn-ghost"><svg class="icon" style="width:16px;height:16px;"><use href="#icon-mail"></use></svg>Contact Me</a>
+      </div>
+
+      <div class="reveal" id="r-socials" style="display:flex; gap:14px;">
+        <a href="https://www.facebook.com/share/18jpkT4AAP/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-ico" aria-label="Facebook"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
+        <a href="https://www.instagram.com/justbek8ine?igsh=NjNmOGJrdzJqMXFz&utm_source=qr" target="_blank" rel="noopener" class="social-ico" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+        <a href="https://www.linkedin.com/in/khine-zin-a6543b41a/" target="_blank" rel="noopener" class="social-ico" aria-label="LinkedIn"><svg class="icon"><use href="#icon-linkedin"></use></svg></a>
+        <a href="https://github.com/meOndaclOud" target="_blank" rel="noopener" class="social-ico" aria-label="GitHub"><svg class="icon"><use href="#icon-github"></use></svg></a>
+        <a href="https://medium.com/@kyn3" target="_blank" rel="noopener" class="social-ico" aria-label="Medium"><svg class="icon"><use href="#icon-book-open"></use></svg></a>
+        <a href="mailto:zkhine418@gmail.com" class="social-ico" aria-label="Email"><svg class="icon"><use href="#icon-mail"></use></svg></a>
+      </div>
+    </div>
+
+    <div class="reveal" id="r-portrait" style="display:flex; justify-content:center;">
+      <div style="position:relative; width:min(380px, 86vw); aspect-ratio: 1/0.95;">
+        <div style="position:absolute; inset:-18px; border-radius: 32px; background: linear-gradient(135deg, var(--coral), var(--lavender), var(--blue)); filter: blur(32px); opacity:.4; animation: pulseGlow 6s ease-in-out infinite;"></div>
+        <div class="grad-border glass" style="position:relative; width:100%; height:100%; border-radius:24px; overflow:hidden; padding:22px 26px;">
+          <div class="chrome-dots" style="margin-bottom:22px;"><span></span><span></span><span></span></div>
+          <div class="mono" style="display:flex; align-items:center; gap:10px; color:var(--text-secondary); font-size:14.5px; margin-bottom:18px;">
+            <svg class="icon" style="width:13px;height:13px;"><use href="#icon-chevron-down"></use></svg>
+            building khine zin's profile&hellip;
+          </div>
+          <ul class="hero-checklist mono">
+            <li><span class="check">✓</span> ICT Coach @ CIY Club</li>
+            <li><span class="check">✓</span> Content Writer @ Rethink</li>
+            <li><span class="check">✓</span> 3xAWS Certified</li>
+            <li><span class="check">✓</span> Mandalay, Myanmar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <a href="#about" class="scroll-cue mono" aria-label="Scroll to content">
+    <span>SCROLL</span>
+    <svg class="icon"><use href="#icon-chevron-down"></use></svg>
+  </a>
+</header>
+<!-- ============ ABOUT ============ -->
+<section id="about" style="padding: 130px 0 100px;">
+  <div class="wrap" style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:72px; align-items:start;">
+    <div class="reveal">
+      <div class="eyebrow">About</div>
+      <h2 style="font-size: clamp(30px, 4vw, 44px); font-weight:700; line-height:1.12; margin-bottom: 26px;">
+        Building technology,<br><span class="grad-text">empowering people.</span>
+      </h2>
+      <p style="color:var(--text-secondary); font-size:16.5px; line-height:1.75; margin-bottom:18px;">
+        I am a technology professional with experience across cloud technologies, networking, digital learning, cybersecurity fundamentals, and content creation.
+      </p>
+      <p style="color:var(--text-secondary); font-size:16.5px; line-height:1.75; margin-bottom:18px;">
+        My journey combines technical problem-solving, education, and knowledge sharing. Beyond technology, I enjoy helping people learn, simplifying complex ideas, and creating content that encourages reflection, growth, and continuous learning.
+      </p>
+      <p style="color:var(--text-secondary); font-size:16.5px; line-height:1.75;">
+        Through my work as an <strong style="color:var(--text-primary); font-weight:600;">ICT Coach</strong>, technology practitioner, and content writer of <strong style="color:var(--text-primary); font-weight:600;">Rethink</strong>, I strive to bridge technology and human development by making knowledge more accessible and meaningful.
+      </p>
+    </div>
+
+    <div>
+      <!-- Stat counters -->
+      <div class="reveal-stagger" id="statGrid" style="display:grid; grid-template-columns: repeat(4,1fr); gap:16px; margin-bottom: 40px;">
+        <div class="glass" style="border-radius:18px; padding:22px 14px; text-align:center;">
+          <div class="counter mono grad-text" data-target="5" style="font-size: 30px; font-weight:700;">0</div>
+          <div style="font-size:12px; color:var(--text-tertiary); margin-top:6px; line-height:1.3;">Certifications</div>
+        </div>
+        <div class="glass" style="border-radius:18px; padding:22px 14px; text-align:center;">
+          <div class="counter mono grad-text" data-target="8" style="font-size: 30px; font-weight:700;">0</div>
+          <div style="font-size:12px; color:var(--text-tertiary); margin-top:6px; line-height:1.3;">Projects</div>
+        </div>
+        <div class="glass" style="border-radius:18px; padding:22px 14px; text-align:center;">
+          <div class="counter mono grad-text" data-target="12" style="font-size: 30px; font-weight:700;">0</div>
+          <div style="font-size:12px; color:var(--text-tertiary); margin-top:6px; line-height:1.3;">Learning Resources</div>
+        </div>
+        <div class="glass" style="border-radius:18px; padding:22px 14px; text-align:center;">
+          <div class="counter mono grad-text" data-target="3" style="font-size: 30px; font-weight:700;">0</div>
+          <div style="font-size:12px; color:var(--text-tertiary); margin-top:6px; line-height:1.3;">Years Experience</div>
+        </div>
+      </div>
+
+      <!-- Interests -->
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom:18px;">Areas of Interest</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <span class="interest-pill">Digital Transformation</span>
+          <span class="interest-pill">Technology & Innovation</span>
+          <span class="interest-pill">Artificial Intelligence</span>
+          <span class="interest-pill">Education</span>
+          <span class="interest-pill">Productivity</span>
+          <span class="interest-pill">Knowledge Management</span>
+          <span class="interest-pill">Business & Entrepreneurship</span>
+          <span class="interest-pill">Personal Development</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ CURRENT ROLES ============ -->
+<section id="roles" style="padding: 60px 0 110px;">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="eyebrow">Right now</div>
+      <h2 style="font-size: clamp(28px, 3.6vw, 40px); font-weight:700;">What I'm doing today</h2>
+    </div>
+
+    <div class="reveal-stagger" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:24px;">
+      <div class="role-card grad-border glass">
+        <div class="role-icon" style="background: linear-gradient(135deg, var(--violet), var(--indigo));">
+          <svg class="icon"><use href="#icon-graduation-cap"></use></svg>
+        </div>
+        <h3 style="font-size:19px; margin-bottom:4px;">ICT Coach</h3>
+        <p class="mono" style="font-size:12.5px; color:var(--violet); margin-bottom:16px;">CIY Club Myanmar</p>
+        <p style="font-size:14.5px; color:var(--text-secondary); line-height:1.65;">
+          Empowering young learners through technology education, project-based learning, coaching, and digital skill development.
+        </p>
+      </div>
+
+      <div class="role-card grad-border glass">
+        <div class="role-icon" style="background: linear-gradient(135deg, var(--pink), var(--violet));">
+          <svg class="icon"><use href="#icon-feather"></use></svg>
+        </div>
+        <h3 style="font-size:19px; margin-bottom:4px;">Founder & Content Creator</h3>
+        <p class="mono" style="font-size:12.5px; color:var(--violet); margin-bottom:16px;">Rethink</p>
+        <p style="font-size:14.5px; color:var(--text-secondary); line-height:1.65;">
+          Creating educational content, articles, reflections, and digital books on technology, productivity, learning, and personal growth — published on Facebook and Medium.
+        </p>
+      </div>
+
+      <div class="role-card grad-border glass">
+        <div class="role-icon" style="background: linear-gradient(135deg, var(--blue), var(--indigo));">
+          <svg class="icon"><use href="#icon-server-cog"></use></svg>
+        </div>
+        <h3 style="font-size:19px; margin-bottom:4px;">Technology Professional</h3>
+        <p class="mono" style="font-size:12.5px; color:var(--violet); margin-bottom:16px;">Cloud · Networking · Security</p>
+        <p style="font-size:14.5px; color:var(--text-secondary); line-height:1.65;">
+          Building practical experience across digital technologies, cloud services, networking, cybersecurity concepts, automation, and modern workplace tools.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ SKILLS ============ -->
+<section id="skills" style="padding: 60px 0 110px;">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="eyebrow">Capabilities</div>
+      <h2 style="font-size: clamp(28px, 3.6vw, 40px); font-weight:700;">Skills & Expertise</h2>
+    </div>
+
+    <div class="reveal-stagger" id="skillsGrid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px;">
+
+      <div class="skill-card glass">
+        <svg class="icon skill-card-icon"><use href="#icon-git-merge"></use></svg>
+        <h3 style="font-size:16.5px; margin-bottom:14px;">Digital Transformation</h3>
+        <ul class="skill-list">
+          <li>Process Improvement</li><li>Digital Tools</li><li>Technology Adoption</li><li>Innovation Mindset</li>
+        </ul>
+      </div>
+
+      <div class="skill-card glass">
+        <svg class="icon skill-card-icon"><use href="#icon-cloud"></use></svg>
+        <h3 style="font-size:16.5px; margin-bottom:14px;">Technology</h3>
+        <ul class="skill-list">
+          <li>AWS</li><li>Cloud Fundamentals</li><li>Linux</li><li>Infrastructure Concepts</li>
+        </ul>
+      </div>
+
+      <div class="skill-card glass">
+        <svg class="icon skill-card-icon"><use href="#icon-network"></use></svg>
+        <h3 style="font-size:16.5px; margin-bottom:14px;">Networking</h3>
+        <ul class="skill-list">
+          <li>Network Configuration</li><li>VLAN</li><li>Troubleshooting</li><li>FTTH</li>
+        </ul>
+      </div>
+
+      <div class="skill-card glass">
+        <svg class="icon skill-card-icon"><use href="#icon-shield-check"></use></svg>
+        <h3 style="font-size:16.5px; margin-bottom:14px;">Security</h3>
+        <ul class="skill-list">
+          <li>Suricata IDS</li><li>ELK Stack</li><li>Log Analysis</li><li>Monitoring</li>
+        </ul>
+      </div>
+
+      <div class="skill-card glass">
+        <svg class="icon skill-card-icon"><use href="#icon-terminal"></use></svg>
+        <h3 style="font-size:16.5px; margin-bottom:14px;">Development & Tools</h3>
+        <ul class="skill-list">
+          <li>Python</li><li>Flask</li><li>Git</li><li>GitHub</li>
+        </ul>
+      </div>
+
+      <div class="skill-card glass">
+        <svg class="icon skill-card-icon"><use href="#icon-sparkles"></use></svg>
+        <h3 style="font-size:16.5px; margin-bottom:14px;">AI & Productivity</h3>
+        <ul class="skill-list">
+          <li>Prompt Engineering</li><li>AI Tools</li><li>Knowledge Management</li><li>Digital Documentation</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ============ EXPERIENCE TIMELINE ============ -->
+<section id="experience" style="padding: 110px 0;">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="eyebrow">Trace route</div>
+      <h2 style="font-size: clamp(28px, 3.6vw, 40px); font-weight:700;">Experience Timeline</h2>
+    </div>
+
+    <div class="timeline" id="timelineWrap">
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"><span class="tl-pulse"></span></div>
+        <div class="tl-content grad-border glass">
+          <div class="tl-head">
+            <h3 style="font-size:18.5px;">ICT Coach</h3>
+            <span class="mono tl-date">JUN 2026 — PRESENT</span>
+          </div>
+          <p class="tl-org mono">CIY Club Myanmar</p>
+          <ul class="tl-points">
+            <li>Support youth learning and technology education</li>
+            <li>Facilitate workshops and project-based learning</li>
+            <li>Mentor students and encourage digital literacy</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content grad-border glass">
+          <div class="tl-head">
+            <h3 style="font-size:18.5px;">Junior Cloud Engineer</h3>
+            <span class="mono tl-date">FEB 2025 — FEB 2026</span>
+          </div>
+          <p class="tl-org mono">B8 ICT Solutions · Myanmar | Remote</p>
+          <ul class="tl-points">
+            <li>Supported cloud infrastructure and hosted environments</li>
+            <li>Worked with AWS and GCP services</li>
+            <li>Assisted with deployments, monitoring, and troubleshooting</li>
+            <li>Applied infrastructure and security best practices</li>
+            <li>Collaborated with remote teams</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content grad-border glass">
+          <div class="tl-head">
+            <h3 style="font-size:18.5px;">Junior Network Support</h3>
+            <span class="mono tl-date">MAR 2024 — MAY 2024</span>
+          </div>
+          <p class="tl-org mono">Star Matrix Technology</p>
+          <ul class="tl-points">
+            <li>Supported FTTH projects</li>
+            <li>Configured routers and switches</li>
+            <li>Assisted with network troubleshooting</li>
+            <li>Implemented VLAN configurations</li>
+            <li>Provided technical support</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content grad-border glass">
+          <div class="tl-head">
+            <h3 style="font-size:18.5px;">KBZPAY Student Ambassador</h3>
+            <span class="mono tl-date">MAR 2026</span>
+          </div>
+          <p class="tl-org mono">KBZ Bank</p>
+          <ul class="tl-points">
+            <li>Represented KBZPay in campus engagement activities</li>
+            <li>Participated in ambassador workshops and marketing campaigns</li>
+            <li>Learned banking operations and digital financial services</li>
+            <li>Joined the KBZPay Student Ambassador On-the-Job Training Program</li>
+            <li>Developed communication, teamwork, and leadership skills</li>
+          </ul>
+        </div>
+      </div>
+    <div>
+  </div>
+</section>
+<!-- ============ PROJECTS ============ -->
+<section id="projects" style="padding: 60px 0 110px;">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="eyebrow">Selected work</div>
+      <h2 style="font-size: clamp(28px, 3.6vw, 40px); font-weight:700;">Featured Projects</h2>
+    </div>
+
+    <div class="reveal-stagger" style="display:flex; flex-direction:column; gap:22px;">
+
+      <div class="project-card grad-border glass">
+        <div class="project-visual" style="background: linear-gradient(135deg, rgba(240,135,107,.5), rgba(142,184,224,.4));">
+          <svg class="icon"><use href="#icon-shield-half"></use></svg>
+        </div>
+        <div class="project-body">
+          <h3 style="font-size:21px; margin-bottom:10px;">Resilient Campus Network with Suricata IDS and ELK SIEM</h3>
+          <p style="font-size:14.5px; color:var(--text-secondary); line-height:1.65; margin-bottom:18px;">
+            Designed and implemented a secure and fault-tolerant campus network with centralized monitoring and intrusion detection.
+          </p>
+          <div class="tag-row">
+            <span class="tech-tag">EVE-NG</span><span class="tech-tag">Suricata</span><span class="tech-tag">ELK Stack</span><span class="tech-tag">Linux</span><span class="tech-tag">Networking</span>
+          </div>
+          <div style="display:flex; gap:14px; margin-top:20px;">
+            <a href="https://github.com" target="_blank" rel="noopener" class="proj-link"><svg class="icon" style="width:15px;height:15px;"><use href="#icon-github"></use></svg> GitHub</a>
+            <a href="#contact" class="proj-link"><svg class="icon" style="width:15px;height:15px;"><use href="#icon-file-text"></use></svg> Case Study</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card grad-border glass">
+        <div class="project-visual" style="background: linear-gradient(135deg, rgba(232,149,179,.45), rgba(194,166,232,.4));">
+          <svg class="icon"><use href="#icon-cloud-cog"></use></svg>
+        </div>
+        <div class="project-body">
+          <h3 style="font-size:21px; margin-bottom:10px;">Cloud Infrastructure & Hosting Projects</h3>
+          <p style="font-size:14.5px; color:var(--text-secondary); line-height:1.65; margin-bottom:18px;">
+            Designed and maintained cloud-based environments while supporting deployment, monitoring, and performance optimization.
+          </p>
+          <div class="tag-row">
+            <span class="tech-tag">AWS</span><span class="tech-tag">GCP</span><span class="tech-tag">Monitoring</span><span class="tech-tag">DevOps</span>
+          </div>
+          <div style="display:flex; gap:14px; margin-top:20px;">
+            <a href="https://github.com" target="_blank" rel="noopener" class="proj-link"><svg class="icon" style="width:15px;height:15px;"><use href="#icon-github"></use></svg> GitHub</a>
+            <a href="#contact" class="proj-link"><svg class="icon" style="width:15px;height:15px;"><use href="#icon-file-text"></use></svg> Case Study</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card grad-border glass">
+        <div class="project-visual" style="background: linear-gradient(135deg, rgba(142,184,224,.45), rgba(159,216,206,.4));">
+          <svg class="icon"><use href="#icon-workflow"></use></svg>
+        </div>
+        <div class="project-body">
+          <h3 style="font-size:21px; margin-bottom:10px;">DevOps & Automation Projects</h3>
+          <p style="font-size:14.5px; color:var(--text-secondary); line-height:1.65; margin-bottom:18px;">
+            Implemented automation workflows, deployment processes, monitoring, and quality assurance practices.
+          </p>
+          <div class="tag-row">
+            <span class="tech-tag">Python</span><span class="tech-tag">Git</span><span class="tech-tag">CI/CD</span><span class="tech-tag">QA</span>
+          </div>
+          <div style="display:flex; gap:14px; margin-top:20px;">
+            <a href="https://github.com" target="_blank" rel="noopener" class="proj-link"><svg class="icon" style="width:15px;height:15px;"><use href="#icon-github"></use></svg> GitHub</a>
+            <a href="#contact" class="proj-link"><svg class="icon" style="width:15px;height:15px;"><use href="#icon-file-text"></use></svg> Case Study</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ============ CERTIFICATIONS ============ -->
+<section id="certifications" style="padding: 110px 0 60px;">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="eyebrow">Credentials</div>
+      <h2 style="font-size: clamp(28px, 3.6vw, 40px); font-weight:700;">Certifications</h2>
+    </div>
+
+    <div class="reveal-stagger" id="certGrid" style="display:grid; grid-template-columns: repeat(3,1fr); gap:18px;">
+      <a href="https://www.credly.com/badges/13be6d70-e3e1-4e8c-a6ae-859699218b17/public_url" target="_blank" rel="noopener" class="cert-badge grad-border glass">
+        <svg class="icon"><use href="#icon-badge-check"></use></svg>
+        <div>
+          <h4 style="font-size:14.5px; margin-bottom:3px;">AWS Certified Solutions Architect</h4>
+          <span class="mono" style="font-size:11px; color:var(--text-tertiary);">Associate</span>
+        </div>
+      </a>
+      <a href="https://www.credly.com/badges/1e932f45-1749-4dc3-a200-682422a02404/public_url" target="_blank" rel="noopener" class="cert-badge grad-border glass">
+        <svg class="icon"><use href="#icon-badge-check"></use></svg>
+        <div>
+          <h4 style="font-size:14.5px; margin-bottom:3px;">AWS Certified Developer</h4>
+          <span class="mono" style="font-size:11px; color:var(--text-tertiary);">Associate</span>
+        </div>
+      </a>
+      <a href="https://www.credly.com/badges/6051e9e4-4b1d-42eb-90df-127cc3d5826b/public_url" target="_blank" rel="noopener" class="cert-badge grad-border glass">
+        <svg class="icon"><use href="#icon-badge-check"></use></svg>
+        <div>
+          <h4 style="font-size:14.5px; margin-bottom:3px;">AWS Certified CloudOps Engineer</h4>
+          <span class="mono" style="font-size:11px; color:var(--text-tertiary);">Associate</span>
+        </div>
+      </a>
+      <a href="https://mikrotik.com/training/certificates/c273900cedc7fa689251" target="_blank" rel="noopener" class="cert-badge grad-border glass">
+        <svg class="icon"><use href="#icon-badge-check"></use></svg>
+        <div>
+          <h4 style="font-size:14.5px; margin-bottom:3px;">MikroTik Certified Network Associate</h4>
+          <span class="mono" style="font-size:11px; color:var(--text-tertiary);">MTCNA</span>
+        </div>
+      </a>
+      <a href="https://ieltsregistration.britishcouncil.org/ttp/ors/test-details/13699053/results" target="_blank" rel="noopener" class="cert-badge grad-border glass">
+        <svg class="icon"><use href="#icon-badge-check"></use></svg>
+        <div>
+          <h4 style="font-size:14.5px; margin-bottom:3px;">IELTS</h4>
+          <span class="mono" style="font-size:11px; color:var(--text-tertiary);">Upper Intermediate</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LANGUAGES ============ -->
+<section id="languages" style="padding: 60px 0 110px;">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:40px;">
+      <div class="eyebrow">Communication</div>
+      <h2 style="font-size: clamp(26px, 3.2vw, 34px); font-weight:700;">Languages</h2>
+    </div>
+    <div class="reveal-stagger" style="display:grid; grid-template-columns: repeat(3,1fr); gap:20px;">
+      <div class="lang-card glass">
+        <div class="lang-top"><span>Burmese</span><span class="mono lang-pct">100%</span></div>
+        <div class="lang-bar"><div class="lang-fill" data-pct="100"></div></div>
+        <span class="lang-label">Native</span>
+      </div>
+      <div class="lang-card glass">
+        <div class="lang-top"><span>English</span><span class="mono lang-pct">80%</span></div>
+        <div class="lang-bar"><div class="lang-fill" data-pct="80"></div></div>
+        <span class="lang-label">Professional Working Proficiency</span>
+      </div>
+      <div class="lang-card glass">
+        <div class="lang-top"><span>French</span><span class="mono lang-pct">45%</span></div>
+        <div class="lang-bar"><div class="lang-fill" data-pct="45"></div></div>
+        <span class="lang-label">Basic Communication</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ DIGITAL BOOKS ============ -->
+<section id="books" style="padding: 60px 0 110px;">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="eyebrow">Library</div>
+      <h2 style="font-size: clamp(28px, 3.6vw, 40px); font-weight:700;">Featured Digital Books</h2>
+      <p style="color:var(--text-secondary); font-size:15.5px; max-width:560px; margin-top:14px; line-height:1.6;">
+        Guides and reflections written to make technology, productivity, and growth more approachable.
+      </p>
+    </div>
+
+    <div class="reveal-stagger" style="display:grid; grid-template-columns: repeat(3,1fr); gap:24px;">
+
+      <div class="book-card">
+        <div class="book-cover" style="background: linear-gradient(160deg, #F0876B, #E895B3);">
+          <svg class="icon"><use href="#icon-layout-grid"></use></svg>
+        </div>
+        <h3 style="font-size:17px; margin:18px 0 8px;">Notion for Productivity</h3>
+        <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.6; margin-bottom:16px;">
+          A practical guide to organizing work, learning, and personal knowledge.
+        </p>
+        <a href="https://medium.com/@kyn3" target="_blank" rel="noopener" class="proj-link">Read More <svg class="icon" style="width:14px;height:14px;"><use href="#icon-arrow-right"></use></svg></a>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover" style="background: linear-gradient(160deg, #E895B3, #C2A6E8);">
+          <svg class="icon"><use href="#icon-notebook-pen"></use></svg>
+        </div>
+        <h3 style="font-size:17px; margin:18px 0 8px;">Rethink Corner</h3>
+        <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.6; margin-bottom:16px;">
+          Reflections on growth, technology, learning, and life.
+        </p>
+        <a href="https://medium.com/@kyn3" target="_blank" rel="noopener" class="proj-link">Read More <svg class="icon" style="width:14px;height:14px;"><use href="#icon-arrow-right"></use></svg></a>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover" style="background: linear-gradient(160deg, #8EB8E0, #9FD8CE);">
+          <svg class="icon"><use href="#icon-brain-circuit"></use></svg>
+        </div>
+        <h3 style="font-size:17px; margin:18px 0 8px;">AI & Learning Notes</h3>
+        <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.6; margin-bottom:16px;">
+          Practical insights on using AI for productivity and learning.
+        </p>
+        <a href="https://medium.com/@kyn3" target="_blank" rel="noopener" class="proj-link">Read More <svg class="icon" style="width:14px;height:14px;"><use href="#icon-arrow-right"></use></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ============ WRITING ============ -->
+<section id="writing" style="padding: 110px 0;">
+  <div class="wrap">
+    <div class="reveal" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:20px; margin-bottom:48px;">
+      <div>
+        <div class="eyebrow">Insights & Writing</div>
+        <h2 style="font-size: clamp(28px, 3.6vw, 40px); font-weight:700;">Recent thinking</h2>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <a href="https://www.facebook.com/rethink.corner" target="_blank" rel="noopener" class="btn btn-ghost"><svg class="icon" style="width:15px;height:15px;"><use href="#icon-facebook"></use></svg> Read on Facebook</a>
+        <a href="https://medium.com/@kyn3" target="_blank" rel="noopener" class="btn btn-ghost"><svg class="icon" style="width:15px;height:15px;"><use href="#icon-book-open"></use></svg> Read on Medium</a>
+      </div>
+    </div>
+
+    <div class="reveal-stagger" id="articleGrid" style="display:grid; grid-template-columns: repeat(3,1fr); gap:22px;">
+      <a href="https://medium.com/@kyn3" target="_blank" rel="noopener" class="article-card glass">
+        <span class="article-tag mono">DIGITAL TRANSFORMATION</span>
+        <h3 style="font-size:17px; margin:14px 0 10px; line-height:1.35;">What "digital transformation" actually means at small organizations</h3>
+        <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.6;">A practitioner's view on adoption, not just tooling.</p>
+        <span class="article-cta mono">Read article →</span>
+      </a>
+      <a href="https://medium.com/@kyn3" target="_blank" rel="noopener" class="article-card glass">
+        <span class="article-tag mono">AI · LEARNING</span>
+        <h3 style="font-size:17px; margin:14px 0 10px; line-height:1.35;">Using AI tools without losing how to think</h3>
+        <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.6;">Notes on building judgment alongside automation.</p>
+        <span class="article-cta mono">Read article →</span>
+      </a>
+      <a href="https://www.facebook.com/rethink.corner" target="_blank" rel="noopener" class="article-card glass">
+        <span class="article-tag mono">PERSONAL GROWTH</span>
+        <h3 style="font-size:17px; margin:14px 0 10px; line-height:1.35;">Rethink: why I write in public</h3>
+        <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.6;">On reflection, accountability, and sharing the messy middle.</p>
+        <span class="article-cta mono">Read article →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ============ RESUME ============ -->
+<section id="resume" style="padding: 0 0 110px;">
+  <div class="wrap">
+    <div class="reveal grad-border glass resume-band">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px;">Recruiter-friendly</p>
+        <h2 style="font-size: clamp(24px, 3vw, 32px); font-weight:700; margin-bottom:8px;">Take a closer look at my resume</h2>
+        <p style="color:var(--text-secondary); font-size:14.5px;">Full work history, certifications, and skills — in one document.</p>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:12px;">
+        <a href="assets/resume.pdf" class="btn btn-primary"><svg class="icon" style="width:16px;height:16px;"><use href="#icon-download"></use></svg> Download Resume</a>
+        <a href="assets/cv.pdf" class="btn btn-ghost"><svg class="icon" style="width:16px;height:16px;"><use href="#icon-file-down"></use></svg> Download CV</a>
+        <a href="https://www.facebook.com/xxine.est9" class="btn btn-ghost"><svg class="icon" style="width:16px;height:16px;"><use href="#icon-external-link"></use></svg> View Online</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" style="padding: 0 0 110px;">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:48px; text-align:center;">
+      <div class="eyebrow" style="justify-content:center;"><span style="display:none;"></span>Get in touch</div>
+      <h2 style="font-size: clamp(28px, 3.6vw, 42px); font-weight:700; margin-bottom:14px;">Let's build something <span class="grad-text">meaningful</span></h2>
+      <p style="color:var(--text-secondary); font-size:15.5px; max-width:480px; margin:0 auto;">Open to roles, collaborations, and conversations about technology, education, and digital transformation.</p>
+    </div>
+
+    <div class="reveal" style="display:grid; grid-template-columns: 0.85fr 1.15fr; gap:28px;" id="contactGrid">
+
+      <div class="grad-border glass" style="padding:36px 30px; display:flex; flex-direction:column; gap:26px;">
+        <a href="tel:+959458625795" class="contact-row">
+          <div class="contact-icon"><svg class="icon"><use href="#icon-phone"></use></svg></div>
+          <div><span class="contact-label">Phone</span><span class="contact-value">+95 9458625795</span></div>
+        </a>
+        <a href="mailto:zkhine418@gmail.com" class="contact-row">
+          <div class="contact-icon"><svg class="icon"><use href="#icon-mail"></use></svg></div>
+          <div><span class="contact-label">Email</span><span class="contact-value">zkhine418@gmail.com</span></div>
+        </a>
+        <div class="contact-row" style="cursor:default;">
+          <div class="contact-icon"><svg class="icon"><use href="#icon-map-pin"></use></svg></div>
+          <div><span class="contact-label">Location</span><span class="contact-value">Mandalay, Myanmar</span></div>
+        </div>
+        <div style="display:flex; gap:12px; margin-top:6px;">
+          <a href="https://www.facebook.com/share/18jpkT4AAP/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-ico" aria-label="Facebook"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
+          <a href="https://www.instagram.com/justbek8ine?igsh=NjNmOGJrdzJqMXFz&utm_source=qr" target="_blank" rel="noopener" class="social-ico" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+          <a href="https://www.linkedin.com/in/khine-zin-a6543b41a/" target="_blank" rel="noopener" class="social-ico" aria-label="LinkedIn"><svg class="icon"><use href="#icon-linkedin"></use></svg></a>
+          <a href="https://github.com/meOndaclOud" target="_blank" rel="noopener" class="social-ico" aria-label="GitHub"><svg class="icon"><use href="#icon-github"></use></svg></a>
+          <a href="https://medium.com/@kyn3" target="_blank" rel="noopener" class="social-ico" aria-label="Medium"><svg class="icon"><use href="#icon-book-open"></use></svg></a>
+        </div>
+      </div>
+
+      <form class="grad-border glass" id="contactForm" style="padding:36px 30px; display:flex; flex-direction:column; gap:18px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" required placeholder="Your name"></div>
+          <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required placeholder="you@email.com"></div>
+        </div>
+        <div class="field"><label for="cf-subject">Subject</label><input id="cf-subject" name="subject" type="text" placeholder="What's this about?"></div>
+        <div class="field"><label for="cf-message">Message</label><textarea id="cf-message" name="message" rows="4" required placeholder="Tell me a bit about it..."></textarea></div>
+        <button type="submit" class="btn btn-primary" style="justify-content:center; margin-top:4px;">
+          <svg class="icon" style="width:16px;height:16px;"><use href="#icon-send"></use></svg> Send Message
+        </button>
+        <p id="formStatus" class="mono" style="font-size:12.5px; color:var(--text-tertiary); text-align:center; min-height:16px;"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer style="padding: 56px 0 40px; border-top:1px solid var(--border);">
+  <div class="wrap" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:24px;">
+    <div>
+      <h3 style="font-size:20px; margin-bottom:6px;">KHINE ZIN</h3>
+      <p class="mono" style="font-size:12px; color:var(--violet); margin-bottom:8px;">Junior Digital Transformation Associate</p>
+      <p style="font-size:13px; color:var(--text-tertiary); max-width:340px;">Building technology, empowering people, and sharing knowledge.</p>
+    </div>
+    <div style="display:flex; gap:12px;">
+      <a href="https://www.facebook.com/share/18jpkT4AAP/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-ico" aria-label="Facebook"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
+      <a href="https://www.instagram.com/justbek8ine?igsh=NjNmOGJrdzJqMXFz&utm_source=qr" target="_blank" rel="noopener" class="social-ico" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+      <a href="https://www.linkedin.com/in/khine-zin-a6543b41a/" target="_blank" rel="noopener" class="social-ico" aria-label="LinkedIn"><svg class="icon"><use href="#icon-linkedin"></use></svg></a>
+      <a href="https://github.com/meOndaclOud" target="_blank" rel="noopener" class="social-ico" aria-label="GitHub"><svg class="icon"><use href="#icon-github"></use></svg></a>
+      <a href="mailto:zkhine418@gmail.com" class="social-ico" aria-label="Email"><svg class="icon"><use href="#icon-mail"></use></svg></a>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:34px; padding-top:24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
+    <span class="mono" style="font-size:12px; color:var(--text-tertiary);">© 2026 Khine Zin. All rights reserved.</span>
+    <button id="backToTop" class="theme-toggle" aria-label="Back to top"><svg class="icon"><use href="#icon-arrow-up"></use></svg></button>
+  </div>
+</footer>
+<!-- Mobile menu panel -->
+<div id="mobileMenu" class="glass" style="position:fixed; top:0; right:0; height:100vh; width:78vw; max-width:320px; z-index:200; transform:translateX(100%); transition: transform .4s var(--ease); padding:90px 28px 28px; display:flex; flex-direction:column; gap:22px;">
+  <a href="#about" class="nav-link mobile-link">About</a>
+  <a href="#roles" class="nav-link mobile-link">Roles</a>
+  <a href="#skills" class="nav-link mobile-link">Skills</a>
+  <a href="#experience" class="nav-link mobile-link">Experience</a>
+  <a href="#projects" class="nav-link mobile-link">Projects</a>
+  <a href="#writing" class="nav-link mobile-link">Writing</a>
+  <a href="#contact" class="nav-link mobile-link">Contact</a>
+</div>
+<div id="menuOverlay" style="position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:150; opacity:0; visibility:hidden; transition:opacity .4s, visibility .4s;"></div>
+
+<script>
+  // icons are inline SVG <use> references — no JS init needed
+
+  /* ---------- Theme ---------- */
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const iconSun = document.getElementById('iconSun');
+  const iconMoon = document.getElementById('iconMoon');
+
+  function applyTheme(theme){
+    root.setAttribute('data-theme', theme);
+    iconSun.style.display = theme === 'dark' ? 'block' : 'none';
+    iconMoon.style.display = theme === 'dark' ? 'none' : 'block';
+    try{ localStorage.setItem('kz-theme', theme); }catch(e){}
+  }
+  let savedTheme = 'dark';
+  try{
+    savedTheme = localStorage.getItem('kz-theme') ||
+      (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  }catch(e){}
+  applyTheme(savedTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  /* ---------- Loader ---------- */
+  window.addEventListener('load', () => {
+    setTimeout(() => { document.getElementById('loader').classList.add('done'); }, 500);
+  });
+  // failsafe in case load event is delayed
+  setTimeout(() => { document.getElementById('loader').classList.add('done'); }, 2500);
+
+  /* ---------- Nav scroll state ---------- */
+  const navEl = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    navEl.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  /* ---------- Mobile menu ---------- */
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuOverlay = document.getElementById('menuOverlay');
+  function openMenu(){
+    mobileMenu.style.transform = 'translateX(0)';
+    menuOverlay.style.opacity = '1';
+    menuOverlay.style.visibility = 'visible';
+  }
+  function closeMenu(){
+    mobileMenu.style.transform = 'translateX(100%)';
+    menuOverlay.style.opacity = '0';
+    menuOverlay.style.visibility = 'hidden';
+  }
+  menuToggle.addEventListener('click', openMenu);
+  menuOverlay.addEventListener('click', closeMenu);
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
+
+  /* ---------- Scroll reveal (IntersectionObserver) ---------- */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ---------- Animated counters ---------- */
+  const counters = document.querySelectorAll('.counter');
+  const counterIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        const el = entry.target;
+        const target = parseInt(el.dataset.target, 10);
+        let current = 0;
+        const duration = 1200;
+        const startTime = performance.now();
+        function tick(now){
+          const progress = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          current = Math.round(eased * target);
+          el.textContent = current;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        counterIO.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(c => counterIO.observe(c));
+
+  /* ---------- Language bars ---------- */
+  const langBars = document.querySelectorAll('.lang-fill');
+  const langIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.style.width = entry.target.dataset.pct + '%';
+        langIO.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  langBars.forEach(b => langIO.observe(b));
+
+  /* ---------- Contact form (no backend — demo confirmation) ---------- */
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formStatus.textContent = 'Message ready — connect a form backend (e.g. Formspree) to send.';
+    contactForm.reset();
+  });
+
+  /* ---------- Back to top ---------- */
+  document.getElementById('backToTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ---------- Aurora canvas (mouse-reactive, fixed page backdrop) ---------- */
+  (function(){
+    const canvas = document.getElementById('auroraCanvas');
+    const ctx = canvas.getContext('2d');
+    let w, h, dpr;
+    let mouse = { x: 0.5, y: 0.35 };
+    let targetMouse = { x: 0.5, y: 0.35 };
+
+    function resize(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    window.addEventListener('mousemove', (e) => {
+      targetMouse.x = e.clientX / window.innerWidth;
+      targetMouse.y = e.clientY / window.innerHeight;
+    });
+
+    const blobs = [
+      { cx: 0.18, cy: 0.25, r: 0.36, c1: '#F0876B', c2: '#E895B3', speed: 0.55, phase: 0 },
+      { cx: 0.80, cy: 0.20, r: 0.32, c1: '#8EB8E0', c2: '#C2A6E8', speed: 0.42, phase: 2 },
+      { cx: 0.52, cy: 0.55, r: 0.40, c1: '#C2A6E8', c2: '#E895B3', speed: 0.38, phase: 4 },
+      { cx: 0.28, cy: 0.80, r: 0.30, c1: '#9FD8CE', c2: '#8EB8E0', speed: 0.5, phase: 1 }
+    ];
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let t = 0;
+
+    function draw(){
+      t += 0.006;
+      mouse.x += (targetMouse.x - mouse.x) * 0.04;
+      mouse.y += (targetMouse.y - mouse.y) * 0.04;
+
+      ctx.clearRect(0, 0, w, h);
+
+      blobs.forEach((b, i) => {
+        const driftX = Math.sin(t * b.speed + b.phase) * 0.06;
+        const driftY = Math.cos(t * b.speed * 0.8 + b.phase) * 0.05;
+        const pull = 0.10;
+        const cx = (b.cx + driftX + (mouse.x - 0.5) * pull) * w;
+        const cy = (b.cy + driftY + (mouse.y - 0.5) * pull) * h;
+        const r = b.r * Math.max(w, h);
+
+        const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+        grad.addColorStop(0, b.c1 + 'AA');
+        grad.addColorStop(0.5, b.c2 + '55');
+        grad.addColorStop(1, b.c2 + '00');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      if (!reduceMotion) requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  /* ---------- Floating particles in hero ---------- */
+  (function(){
+    const wrap = document.querySelector('.aurora-wrap');
+    if (!wrap) return;
+    const count = window.innerWidth < 700 ? 8 : 16;
+    for (let i = 0; i < count; i++){
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = 3 + Math.random() * 5;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top = Math.random() * 100 + '%';
+      p.style.animationDuration = (10 + Math.random() * 10) + 's';
+      p.style.animationDelay = (Math.random() * -10) + 's';
+      wrap.appendChild(p);
+    }
+  })();
+</script>
+
+</body>
+</html>

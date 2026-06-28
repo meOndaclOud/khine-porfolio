@@ -2,7 +2,7 @@
 const supabaseUrl = "https://tugojovqzczwboascqdl.supabase.co";
 const supabaseKey = "sb_publishable_TIhun6pTcm0DVhWex4vqIQ_THjc7tq8";
 
-const supabase = window.supabase.createClient(
+const supabaseClient = window.supabase.createClient(
   supabaseUrl,
   supabaseKey
 );
@@ -21,7 +21,7 @@ form.addEventListener("submit", async (e) => {
   const subject = document.getElementById("cf-subject").value;
   const message = document.getElementById("cf-message").value;
 
-  const { error } = await supabase
+const { error } = await supabaseClient
     .from("portfolio-db-contact")
     .insert([
       {

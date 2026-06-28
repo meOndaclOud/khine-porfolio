@@ -1501,6 +1501,15 @@
   }, { threshold: 0.5 });
   langBars.forEach(b => langIO.observe(b));
 
+  /* ---------- Contact form (no backend — demo confirmation) ---------- */
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formStatus.textContent = 'Message ready — connect a form backend (e.g. Formspree) to send.';
+    contactForm.reset();
+  });
+
   /* ---------- Back to top ---------- */
   document.getElementById('backToTop').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

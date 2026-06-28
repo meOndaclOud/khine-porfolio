@@ -26,10 +26,13 @@ console.log(emailInput);
 console.log(subjectInput);
 console.log(messageInput);
 
-const name = nameInput?.value;
-const email = emailInput?.value;
-const subject = subjectInput?.value;
-const message = messageInput?.value;
+const formData = new FormData(form);
+
+const name = formData.get("name");
+const email = formData.get("email");
+const subject = formData.get("subject");
+const message = formData.get("message");
+
   
 console.log({
   name,

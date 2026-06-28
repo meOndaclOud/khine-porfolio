@@ -16,30 +16,31 @@ form.addEventListener("submit", async (e) => {
   status.textContent = "Sending...";
   status.style.color = "#888";
 
-const nameInput = document.getElementById("cf-name");
-const emailInput = document.getElementById("cf-email");
-const subjectInput = document.getElementById("cf-subject");
-const messageInput = document.getElementById("cf-message");
+  // Read form values
+  const formData = new FormData(form);
 
-console.log(nameInput);
-console.log(emailInput);
-console.log(subjectInput);
-console.log(messageInput);
+  const name = formData.get("name")?.trim();
+  const email = formData.get("email")?.trim();
+  const subject = formData.get("subject")?.trim();
+  const message = formData.get("message")?.trim();
 
-const formData = new FormData(form);
+  // Debugging
+  console.log("========== FORM DATA ==========");
+  console.log("Name:", name);
+  console.log("Email:", email);
+  console.log("Subject:", subject);
+  console.log("Message:", message);
+  console.log("===============================");
 
-for (const pair of formData.entries()) {
-    console.log(pair[0], "=", pair[1]);
-}
+  // Prevent empty submission
+  if (!name || !email || !message) {
+    status.textContent = "Please fill in all required fields.";
+    status.style.color = "#ef4444";
+    return;
+  }
 
-  
-console.log({
-  name,
-  email,
-  subject,
-  message
-});
-const { error } = await supabaseClient
+  // Insert into Supabase
+  const { error } = await supabaseClient
     .from("portfolio-db-contact")
     .insert([
       {
@@ -51,11 +52,16 @@ const { error } = await supabaseClient
     ]);
 
   if (error) {
-    status.textContent = " Error!" + error.message;
-    status.style.color = "#ef4444";
+    console.error(error);
+
+    status.textContent = "Error: " + error.message;
+    status.style.color = "#d80a0a";
   } else {
-    status.textContent = " Message sent successfully!";
-    status.style.color = "#10b981";
+    console.log("Message saved successfully!");
+
+    status.textContent = "✅ Message sent successfully!";
+    status.style.color = "#098902";
+
     form.reset();
   }
 });
